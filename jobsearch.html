@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Job Search</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class ="display-4 text-center">
+            <i class ="fas fa-book-open text"></i>Job <span class ="text-primary"> Search</span>Track
+        </h1>
+      
+        <form id = "job-form" class ="col-md-6">
+            <div class="form-group  mt-3">
+                <label for="title">Name of the company</label>
+                <input type="text"  id="title" class ="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <label for="location">job location</label>
+                <input type="text"  id="location" class ="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <label for="jobtitle">job title</label>
+                <input type="text"  id="jobtitle" class ="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <label for="status">job Status</label>
+                <input type="text"  id="status" class ="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <label for="Person">Contact person</label>
+                <input type="text"  id="Person" class ="form-control">
+            </div>
+             <div class="form-group mt-3">
+                <label for="Contact">Contact number</label>
+                <input type="text"  id="Contact" class ="form-control">
+            </div>
+            <div class="form-group mt-3">
+                <input type= "submit" value = "Add job" class = "btn btn-primary btn-block"> 
+            </div>
+         
+        </form>
+        <table class= "table table-striped mt-5">
+            <thead>
+                <th>Name of the Company</th>
+                <th> job location</th>
+                <th>Job title</th>
+                <th>Job status</th>
+                <th>Contact Person</th>
+                <th>Contact number</th>
+                <th>Delete</th>
+            </thead>
+            <tbody id="job-list">
+
+            </tbody>
+        </table>
+    </div>
+    <script src="jobsearch.js"></script>
+</body>
+</html>
