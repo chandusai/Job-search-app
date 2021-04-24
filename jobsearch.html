@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>Job Search</title>
+<link rel = "stylesheet" href="jobsearch.css">   
+<title>Job Search</title>
 </head>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
 <body>
     <div class="container mt-4">
         <h1 class ="display-4 text-center">
@@ -16,30 +19,30 @@
         <form id = "job-form" class ="col-md-6">
             <div class="form-group  mt-3">
                 <label for="title">Name of the company</label>
-                <input type="text"  id="title" class ="form-control">
+                <input type="text"  id="title" class ="form-control" name= "Name">
             </div>
             <div class="form-group mt-3">
                 <label for="location">job location</label>
-                <input type="text"  id="location" class ="form-control">
+                <input type="text"  id="location" class ="form-control "name = "Location">
             </div>
             <div class="form-group mt-3">
                 <label for="jobtitle">job title</label>
-                <input type="text"  id="jobtitle" class ="form-control">
+                <input type="text"  id="jobtitle" class ="form-control"name = "Title">
             </div>
             <div class="form-group mt-3">
                 <label for="status">job Status</label>
-                <input type="text"  id="status" class ="form-control">
+                <input type="text"  id="status" class ="form-control"name="status">
             </div>
             <div class="form-group mt-3">
                 <label for="Person">Contact person</label>
-                <input type="text"  id="Person" class ="form-control">
+                <input type="text"  id="Person" class ="form-control"name ="Person">
             </div>
              <div class="form-group mt-3">
                 <label for="Contact">Contact number</label>
-                <input type="text"  id="Contact" class ="form-control">
+                <input type="text"  id="Contact" class ="form-control" name = "Phonenumber">
             </div>
             <div class="form-group mt-3">
-                <input type= "submit" value = "Add job" class = "btn btn-primary btn-block"> 
+                <button  class = "btn btn-primary btn-block"> Add job </button>
             </div>
          
         </form>
@@ -58,6 +61,21 @@
             </tbody>
         </table>
     </div>
-    <script src="jobsearch.js"></script>
+   
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyAARyaKkGDHToPuvVv5t8cA4SU3975paQs",
+        authDomain: "jobsearchapp-f00e8.firebaseapp.com",
+        projectId: "jobsearchapp-f00e8",
+        storageBucket: "jobsearchapp-f00e8.appspot.com",
+        messagingSenderId: "161244269684",
+        appId: "1:161244269684:web:ae2ad50d09330e17331521",
+        measurementId: "G-JQG5FKZTRP"
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      db.settings({timestampsInSnapshots:true});
+      </script>
+      <script src="jobsearch.js"></script>
 </body>
 </html>
