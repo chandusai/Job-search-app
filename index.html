@@ -18,30 +18,34 @@
       
         <form id = "job-form" class ="col-md-6">
             <div class="form-group  mt-3">
-                <label for="title">Name of the company</label>
-                <input type="text"  id="title" class ="form-control" name= "Name">
+                <label for="title">Name of the company *</label>
+                <input type="text"  id="title" class ="form-control " name= "Name" required>
             </div>
             <div class="form-group mt-3">
-                <label for="location">job location</label>
-                <input type="text"  id="location" class ="form-control "name = "Location">
+                <label for="location">job location *</label>
+                <input type="text"  id="location" class ="form-control"name = "Location" required>
             </div>
             <div class="form-group mt-3">
-                <label for="jobtitle">job title</label>
-                <input type="text"  id="jobtitle" class ="form-control"name = "Title">
+                <label for="jobtitle">job title *</label>
+                <input type="text"  id="jobtitle" class ="form-control"name = "Title" required>
             </div>
             <div class="form-group mt-3">
-                <label for="status">job Status</label>
-                <input type="text"  id="status" class ="form-control"name="status">
+                <label for="status">job Status *</label>
+                <input type="text"  id="status" class ="form-control"name="status" required>
             </div>
             <div class="form-group mt-3">
-                <label for="Person">Contact person</label>
-                <input type="text"  id="Person" class ="form-control"name ="Person">
+                <label for="date">Date</label>
+                <input type="date"  id="date" class ="form-control"name="date" >
+            </div>
+            <div class="form-group mt-3">
+                <label for="Person">Contact person *</label>
+                <input type="text"  id="Person" class ="form-control"name ="Person" required>
             </div>
              <div class="form-group mt-3">
-                <label for="Contact">Contact number</label>
-                <input type="text"  id="Contact" class ="form-control" name = "Phonenumber">
+                <label for="Contact">Contact number *</label>
+                <input type="text"  id="Contact" class ="form-control" name = "Phonenumber" required>
             </div>
-            <div class="form-group mt-3">
+            <div class="form-group mt-3 ">
                 <button  class = "btn btn-primary btn-block"> Add job </button>
             </div>
          
@@ -52,6 +56,7 @@
                 <th> job location</th>
                 <th>Job title</th>
                 <th>Job status</th>
+                <th>Date</th>
                 <th>Contact Person</th>
                 <th>Contact number</th>
                 <th>Delete</th>
