@@ -154,15 +154,17 @@ let renderjobs = (jobs)=>{
 //     })
 // })
 db.collection('Jobs').orderBy('Date').onSnapshot(snapshot=>{
-    let jobs = snapshot.docChanges()
+    let jobs= snapshot.docChanges()
     console.log(jobs)
     jobs.forEach(job=>{
         if(job.type =='added'){
           renderjobs(job.doc)
         }
         else if(job.type == 'removed'){
-         let tr = list.querySelector('[data-id=' + job.doc.id + ']')
-         list.removeChild(tr);
-       }
+          const list = document.querySelector('#job-list')
+         let MN = list.querySelector('[data-id = '+ job.doc.id + ']')
+         list.removeChild(MN)
+        }
+        
     })
 })
