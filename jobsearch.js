@@ -37,7 +37,7 @@ static showAlert(message,className){
     }
 
     static clear__class(){
-     let clear=   Array.from (document.querySelector('.form-group')).children
+     let clear=   Array.from (document.querySelector('.form-group').children)
      clear.forEach((element)=>{
          if(element.classList.contains("is-valid")){
              element.classList.remove("is-valid")
