@@ -36,6 +36,16 @@ static showAlert(message,className){
        
     }
 
+    static clear__class(){
+     let clear=   Array.from (document.querySelector('.form-group')).children
+     clear.forEach((element)=>{
+         if(element.classList.contains("is-valid")){
+             element.classList.remove("is-valid")
+         }
+     })
+      
+
+    }
   
 }
 
@@ -58,6 +68,7 @@ else{
    
     // clear fields
     UI.clearfields(); 
+    UI.clear__class();
     UI.showAlert('You filled the form successfully','success')
     
  db.collection('Jobs').add({
@@ -100,15 +111,19 @@ const patterns = {
  let Validation=(field,regex)=>{
      
 if(regex.test(field.value)) {
-    field.className += " is-valid"
+     field.classList.add('is-valid')
+     field.classList.remove('is-invalid')
+    
 } 
 else{
-    field.className += " is-invalid"
+     field.classList.add('is-invalid')
+     field.classList.remove('is-valid')
+     
 } 
 }
 
 fields.forEach((input)=>{
- input.addEventListener('keyup',(e)=>{
+ input.addEventListener('blur',(e)=>{
      Validation(e.target,patterns[e.target.attributes.name.value])
  })
 })
@@ -139,11 +154,7 @@ let renderjobs = (jobs)=>{
         let bc = id.parentElement.getAttribute('data-id')
         console.log(bc)
 
-        db.collection('Jobs').doc(bc).delete()
-        
-        UI.showAlert('You deleted the list successfully','success')
-
-      
+        db.collection('Jobs').doc(bc).delete()           
     })
 }
 
@@ -162,8 +173,8 @@ db.collection('Jobs').orderBy('Date').onSnapshot(snapshot=>{
         }
         else if(job.type == 'removed'){
           const list = document.querySelector('#job-list')
-         let MN = list.querySelector('[data-id = '+ job.doc.id + ']')
-         list.removeChild(MN)
+         let MN = list.querySelector(`[data-id = ${job.doc.id} ]`)
+         MN.remove()
         }
         
     })
