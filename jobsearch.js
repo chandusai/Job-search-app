@@ -37,7 +37,7 @@ static showAlert(message,className){
     }
 
     static clear__class(){
-     let clear=   Array.from (document.querySelector('.form-group').children)
+     let clear=   document.querySelectorAll('form,.form-group,.form-control')
      clear.forEach((element)=>{
          if(element.classList.contains("is-valid")){
              element.classList.remove("is-valid")
@@ -150,14 +150,11 @@ let renderjobs = (jobs)=>{
     row.setAttribute('data-id',jobs.id)
 
     document.querySelector('#job-button').addEventListener('click',(e)=>{
-        let id =e.target.parentElement
-        let bc = id.parentElement.getAttribute('data-id')
-        console.log(bc)
-
-        db.collection('Jobs').doc(bc).delete()           
+        let id =e.target.parentElement.parentElement.getAttribute('data-id')
+        console.log(id)
+        db.collection('Jobs').doc(id).delete()           
     })
 }
-
 
 // db.collection('Jobs').get().then(snapshots=>{
 //     snapshots.docs.forEach((jobs)=>{
@@ -171,11 +168,12 @@ db.collection('Jobs').orderBy('Date').onSnapshot(snapshot=>{
         if(job.type =='added'){
           renderjobs(job.doc)
         }
-        else if(job.type == 'removed'){
-          const list = document.querySelector('#job-list')
-         let MN = list.querySelector(`[data-id = ${job.doc.id} ]`)
-         MN.remove()
-        }
+        else if(job.type == 'removed'){            
+          const list= document.querySelector(`[data-id = "${job.doc.id}"]`)
+        //    let mn =   list.querySelector(`[data-id = ${job.doc.id}]`)
+           list.remove()
+           UI.showAlert("You successfully deleted the listing",'primary')
+         }
         
     })
 })
