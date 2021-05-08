@@ -135,8 +135,10 @@ fields.forEach((input)=>{
 // firebase data to show in UI 
 let renderjobs = (jobs)=>{
     console.log(jobs.data())
+    
     const list = document.querySelector('#job-list')
     const row = document.createElement('tr');
+    row.setAttribute('data-id',jobs.id)
     row.innerHTML=  `
     <td> ${jobs.data().Company}</td>
     <td> ${jobs.data().Location}</td>
@@ -145,16 +147,26 @@ let renderjobs = (jobs)=>{
     <td> ${jobs.data().Date}</td>
     <td> ${jobs.data().Contactperson}</td>
     <td> ${jobs.data().Contact}</td>
-    <td> <a href ="#"  id = "job-button" class ="btn btn-danger btn-sm delete">X </a></td>`;
+    <td> <a href ="#"  id = "job-button" class ="btn btn-danger btn-sm job__button" >X </a></td>`;
     list.appendChild(row);
     row.setAttribute('data-id',jobs.id)
 
-    document.querySelector('#job-button').addEventListener('click',(e)=>{
-        let id =e.target.parentElement.parentElement.getAttribute('data-id')
-        console.log(id)
-        db.collection('Jobs').doc(id).delete()           
+    // document.querySelector('#job-button').addEventListener('click',(e)=>{
+    //     let id =e.target.parentElement.parentElement.getAttribute('data-id')
+    //     console.log(id)
+    //     db.collection('Jobs').doc(id).delete()           
+    // })
+    document.querySelectorAll('.job__button').forEach((li) => {
+        li.addEventListener('click', (e) => {
+            let id =e.target.parentElement.parentElement.getAttribute('data-id')
+                console.log(id)
+                db.collection('Jobs').doc(id).delete() 
+        });
     })
 }
+
+
+
 
 // db.collection('Jobs').get().then(snapshots=>{
 //     snapshots.docs.forEach((jobs)=>{
@@ -169,9 +181,9 @@ db.collection('Jobs').orderBy('Date').onSnapshot(snapshot=>{
           renderjobs(job.doc)
         }
         else if(job.type == 'removed'){            
-          const list= document.querySelector(`[data-id = "${job.doc.id}"]`)
-        //    let mn =   list.querySelector(`[data-id = ${job.doc.id}]`)
-           list.remove()
+          const list= document.querySelector('#job-list')
+           let mn =   list.querySelector(`[data-id = ${job.doc.id}]`)
+           list.removeChild(mn)
            UI.showAlert("You successfully deleted the listing",'primary')
          }
         
