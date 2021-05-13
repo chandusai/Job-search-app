@@ -181,7 +181,7 @@ db.collection('Jobs').orderBy('Date').onSnapshot(snapshot=>{
           renderjobs(job.doc)
         }
         else if(job.type == 'removed'){            
-          const list= document.querySelector('#job-list')
+          const list= document.querySelector('.job__list')
            let mn =   list.querySelector(`[data-id = ${job.doc.id}]`)
            list.removeChild(mn)
            UI.showAlert("You successfully deleted the listing",'primary')
