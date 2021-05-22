@@ -1,7 +1,27 @@
 // Tracking auth state
 
 auth.onAuthStateChanged(user=>{
-  
+ if(user){
+ db.collection('Jobs').orderBy('Date').onSnapshot(snapshot=>{
+    let jobs= snapshot.docChanges()
+    console.log(jobs)
+    jobs.forEach(job=>{
+        if(job.type =='added'){
+          renderjobs(job.doc)
+        }
+        else if(job.type == 'removed'){            
+          const list= document.querySelector('#job-list')
+           let mn =   list.querySelector(`[data-id = ${job.doc.id}]`)
+           list.removeChild(mn)
+           UI.showAlert("You successfully deleted the listing",'primary')
+         }
+        
+    })
+})
+ } 
+ else{
+   alert ("Please login in to your account if you want see your job listings")
+ }
  
 })
 
