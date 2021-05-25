@@ -134,7 +134,7 @@ fields.forEach((input)=>{
 
 // firebase data to show in UI 
 let renderjobs = (jobs)=>{
-    console.log(jobs.data())
+     console.log(jobs.data())
     
     const list = document.querySelector('#job-list')
     const row = document.createElement('tr');

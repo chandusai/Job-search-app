@@ -1,14 +1,14 @@
 // Tracking auth state
 
 auth.onAuthStateChanged(user=>{
- if(user){
- db.collection('Jobs').orderBy('Date').onSnapshot(snapshot=>{
+  db.collection('Jobs').orderBy('Date').onSnapshot(snapshot=>{
     let jobs= snapshot.docChanges()
     console.log(jobs)
+    if(user){
     jobs.forEach(job=>{
         if(job.type =='added'){
           renderjobs(job.doc)
-        }
+          }
         else if(job.type == 'removed'){            
           const list= document.querySelector('#job-list')
            let mn =   list.querySelector(`[data-id = ${job.doc.id}]`)
@@ -17,11 +17,15 @@ auth.onAuthStateChanged(user=>{
          }
         
     })
-})
+
  } 
  else{
-   alert ("Please login in to your account if you want see your job listings")
+  
+   let ch = document.querySelector("#job-list")
+   ch.style.display = "none"
+   UI.showAlert("Please login in to account to see listings",'primary')
  }
+})
  
 })
 
@@ -52,6 +56,7 @@ const logout = document.querySelector('#logout')
 logout.addEventListener('click',(e)=>{
     e.preventDefault()
     auth.signOut()
+    console.log("user sign out")
   })
 
     // login the user
@@ -63,7 +68,7 @@ logout.addEventListener('click',(e)=>{
       const loginpassword = login['login-password'].value
       
       auth.signInWithEmailAndPassword(loginemail,loginpassword).then(cred=>{
-        // console.log(cred.user)
+        console.log(cred.user)
         login.reset()
          const close__button = document.querySelector('.logs')
          close__button.setAttribute('data-bs-dismiss','modal')
