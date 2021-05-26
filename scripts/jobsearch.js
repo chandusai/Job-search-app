@@ -1,3 +1,21 @@
+const logoutlinks =  document.querySelectorAll('.logout')
+console.log(logoutlinks)
+const loginlinks = document.querySelectorAll('.login')
+console.log(loginlinks)
+
+
+// conditional links 
+
+const setUI = (user)=>{
+ if(user){
+     logoutlinks.forEach(element=>{element.style.display = 'block'})
+     logoutlinks.forEach(element=>{element.style.display = 'none'})
+ }
+ else{
+    loginlinks.forEach(element=>{element.style.display = 'none'})
+    loginlinks.forEach(element=>{element.style.display = 'block'}) 
+ }
+}
 // job class
 class Job{
     constructor(company,location,title,status,Person,Pnumber){

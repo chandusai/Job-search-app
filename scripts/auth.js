@@ -5,6 +5,7 @@ auth.onAuthStateChanged(user=>{
     let jobs= snapshot.docChanges()
     console.log(jobs)
     if(user){
+      setUI(user)
     jobs.forEach(job=>{
         if(job.type =='added'){
           renderjobs(job.doc)
@@ -20,10 +21,15 @@ auth.onAuthStateChanged(user=>{
 
  } 
  else{
-  
+  setUI()
    let ch = document.querySelector("#job-list")
    ch.style.display = "none"
-   UI.showAlert("Please login in to account to see listings",'primary')
+   const div = document.createElement('div')
+   div.className = 'alert alert-success'
+   const h4 = document.createElement('h4')
+    h4.innerHTML = "Please login in to your account to see the job-listings"
+   div.appendChild(h4)
+  
  }
 })
  
