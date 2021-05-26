@@ -8,12 +8,12 @@ console.log(loginlinks)
 
 const setUI = (user)=>{
  if(user){
-     logoutlinks.forEach(element=>{element.style.display = 'block'})
+     loginlinks.forEach(element=>{element.style.display = 'block'})
      logoutlinks.forEach(element=>{element.style.display = 'none'})
  }
  else{
     loginlinks.forEach(element=>{element.style.display = 'none'})
-    loginlinks.forEach(element=>{element.style.display = 'block'}) 
+    logoutlinks.forEach(element=>{element.style.display = 'block'}) 
  }
 }
 // job class

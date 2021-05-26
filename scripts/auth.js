@@ -16,10 +16,8 @@ auth.onAuthStateChanged(user=>{
            list.removeChild(mn)
            UI.showAlert("You successfully deleted the listing",'primary')
          }
-        
-    })
-
- } 
+      })
+   } 
  else{
   setUI()
    let ch = document.querySelector("#job-list")
