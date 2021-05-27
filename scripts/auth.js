@@ -20,8 +20,8 @@ auth.onAuthStateChanged(user=>{
    } 
  else{
   setUI()
-   let ch = document.querySelector("#job-list")
-   ch.style.display = "none"
+    // let ch = document.querySelector("#job-list")
+    // ch.style.display = "none"
    const div = document.createElement('div')
    div.className = 'alert alert-success'
    const h4 = document.createElement('h4')
