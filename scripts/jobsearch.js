@@ -2,6 +2,7 @@ const logoutlinks =  document.querySelectorAll('.logout')
 console.log(logoutlinks)
 const loginlinks = document.querySelectorAll('.login')
 console.log(loginlinks)
+ 
 
 
 // conditional links 
@@ -184,8 +185,17 @@ let renderjobs = (jobs)=>{
     })
 }
 
+// Account popup
 
+const account = document.querySelector('#account')
+  account.addEventListener('click',(e)=>{
+    e.preventDefault()
+    console.log("Hello account holder")
+                             
+     
+})
 
+//data-bs-target="#collapseOne"
 
 // db.collection('Jobs').get().then(snapshots=>{
 //     snapshots.docs.forEach((jobs)=>{

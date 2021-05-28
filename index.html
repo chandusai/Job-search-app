@@ -24,7 +24,8 @@
         <div class="btn-group d-flex flex-row-reverse">
           <button type="button" class="btn btn-primary logout ms-2"  data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">signup</button>
           <button type="button" class="btn btn-primary login ms-2" id="logout">  Logout   </button>
-          <button type="button" class="btn btn-primary login ms-2" id="logout">  Account  </button>
+          <button type="button" class="btn btn-primary  login ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">   Account </button> 
+          
           <button type="button" class="btn btn-primary logout ms-2"  data-toggle="modal1" data-bs-toggle="modal" data-bs-target="#exampleModal1">  Login   </button>
         </div>
   <!-- Modal for Signup -->
@@ -90,7 +91,29 @@
         </div>
 <!-- </Modal> -->
 
+
+<!-- Modal for account -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- form fields -->
+
         <form id = "job-form" class ="col-md-6">
             <div class="form-group  mt-3">
                 <label for="title">Name of the company *</label>
@@ -123,9 +146,12 @@
             <div class="form-group mt-3 ">
                 <button  class = "btn btn-primary btn-block"> Add job </button>
             </div>
-            
+         </form>
+        
+        
          
-        </form>
+       
+         
         <table class= "table table-striped mt-5">
             <thead>
                 <th>Name of the Company</th>
@@ -141,7 +167,7 @@
 
             </tbody>
         </table>
-    </div>
+    
    
 <script>
     var firebaseConfig = {
