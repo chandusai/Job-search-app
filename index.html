@@ -24,7 +24,7 @@
         <div class="btn-group d-flex flex-row-reverse">
           <button type="button" class="btn btn-primary logout ms-2"  data-toggle="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">signup</button>
           <button type="button" class="btn btn-primary login ms-2" id="logout">  Logout   </button>
-          <button type="button" class="btn btn-primary  login ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">   Account </button> 
+          <button type="button" class="btn btn-primary  login ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal2" id = "account">   Account </button> 
           
           <button type="button" class="btn btn-primary logout ms-2"  data-toggle="modal1" data-bs-toggle="modal" data-bs-target="#exampleModal1">  Login   </button>
         </div>
@@ -39,14 +39,23 @@
         <div class="modal-body">
             <form id = "signup-form">
                 <div class="form-group">
-                  <label for="exampleInputEmail">Email address</label>
+                  <label for="email">Email address</label>
                   <input type="email" class="form-control" id="email"  placeholder="Enter email">
                 
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword">Password</label>
+                  <label for="password">Password</label>
                   <input type="current-password" class="form-control" id="password" placeholder="Password">
                 </div>  
+
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name"  placeholder="Enter your Name">
+                </div>
+                <div class="form-group">
+                  <label for="hometown">Hometown</label>
+                  <input type="text" class="form-control" id="hometown"  placeholder="Enter your Hometown">
+                </div>
                 <div class="modal-footer">
                   <button type="submit" class="btn btn-primary" id="sub" >Submit</button>
                   </div>
@@ -101,7 +110,7 @@
         <h5 class="modal-title" id="exampleModalLabel">User Details</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body__account">
         ...
       </div>
       <div class="modal-footer">

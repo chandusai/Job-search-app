@@ -11,6 +11,15 @@ const setUI = (user)=>{
  if(user){
      loginlinks.forEach(element=>{element.style.display = 'block'})
      logoutlinks.forEach(element=>{element.style.display = 'none'})
+     const modal__body = document.querySelector('.modal-body__account')
+     db.collection('users').doc(user.uid).get().then(doc =>{
+        modal__body.innerHTML = `
+         User email : <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="${user.email}">
+         User Name: <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="${doc.data().name}">
+        User Hometown:  <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="${doc.data().hometown}">
+        `                       
+     })
+   
  }
  else{
     loginlinks.forEach(element=>{element.style.display = 'none'})
@@ -187,15 +196,19 @@ let renderjobs = (jobs)=>{
 
 // Account popup
 
-const account = document.querySelector('#account')
-  account.addEventListener('click',(e)=>{
-    e.preventDefault()
-    console.log("Hello account holder")
-                             
+// const account = document.querySelector('#account')
+//   account.addEventListener('click',(e)=>{
+//     e.preventDefault()
+    
+//    const modal__body = document.querySelector('modal-body__account')
+//    modal__body.innerHTML = `
+//    <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="${user.email}">
+   
+//    `                          
      
-})
+// })
 
-//data-bs-target="#collapseOne"
+ 
 
 // db.collection('Jobs').get().then(snapshots=>{
 //     snapshots.docs.forEach((jobs)=>{

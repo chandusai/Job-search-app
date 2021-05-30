@@ -1,13 +1,17 @@
 // Tracking auth state
+const account = document.querySelector('#account')
+
 
 auth.onAuthStateChanged(user=>{
   db.collection('Jobs').orderBy('Date').onSnapshot(snapshot=>{
     let jobs= snapshot.docChanges()
     console.log(jobs)
     if(user){
-
-      
-      setUI(user)
+     setUI(user)
+     account.addEventListener('click',(e)=>{
+      e.preventDefault()
+           
+  })
     jobs.forEach(job=>{
         if(job.type =='added'){
           renderjobs(job.doc)
@@ -42,14 +46,20 @@ signup.addEventListener('submit',(e)=>{
     const password = signup['password'].value
     
 
+    
+
 // creating the user
 
 auth.createUserWithEmailAndPassword(email,password).then(cred=>{
-  console.log(cred)
-  signup.reset()
+  // console.log(cred)
+  return db.collection('users').doc(cred.user.uid).set({
+     name: signup['name'].value,
+     hometown : signup['hometown'].value
+  })
+   }).then(()=>{
+    signup.reset()
    const close__button = document.querySelector('#sub')
-   close__button.setAttribute('data-bs-dismiss','modal')
-   
+   close__button.setAttribute('data-bs-dismiss','modal') 
   })
 })
 
