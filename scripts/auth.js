@@ -13,8 +13,10 @@ auth.onAuthStateChanged(user=>{
            
   })
     jobs.forEach(job=>{
-        if(job.type =='added'){
+            if(job.type =='added'){
+          
           renderjobs(job.doc)
+        
           }
         else if(job.type == 'removed'){            
           const list= document.querySelector('#job-list')
@@ -22,6 +24,7 @@ auth.onAuthStateChanged(user=>{
            list.removeChild(mn)
            UI.showAlert("You successfully deleted the listing",'primary')
          }
+        
       })
    } 
  else{

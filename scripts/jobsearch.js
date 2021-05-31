@@ -163,6 +163,7 @@ fields.forEach((input)=>{
 // firebase data to show in UI 
 
 let renderjobs = (jobs)=>{
+    
      console.log(jobs.data())
     
     const list = document.querySelector('#job-list')
@@ -179,7 +180,7 @@ let renderjobs = (jobs)=>{
     <td> <a href ="#"  id = "job-button" class ="btn btn-danger btn-sm job__button" >X </a></td>`;
     list.appendChild(row);
     row.setAttribute('data-id',jobs.id)
-
+    
     // document.querySelector('#job-button').addEventListener('click',(e)=>{
     //     let id =e.target.parentElement.parentElement.getAttribute('data-id')
     //     console.log(id)
