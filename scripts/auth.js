@@ -7,14 +7,14 @@ auth.onAuthStateChanged(user=>{
     let jobs= snapshot.docChanges()
     console.log(jobs)
     if(user){
-     setUI(user)
-     account.addEventListener('click',(e)=>{
+       setUI(user)
+       account.addEventListener('click',(e)=>{
       e.preventDefault()
            
   })
-    jobs.forEach(job=>{
+    jobs.map(job=>{
             if(job.type =='added'){
-          
+              
           renderjobs(job.doc)
         
           }
@@ -32,7 +32,7 @@ auth.onAuthStateChanged(user=>{
 
 
     let ch = document.querySelector("#job-list")
-    ch.style.display = "none"
+    ch.removeChild('tr')
    
  }
 })
